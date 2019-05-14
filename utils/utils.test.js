@@ -1,31 +1,30 @@
 const utils = require('./utils');
-const utils = require('expect');
+const expect = require('expect');
 it('Should add two numbers',()=>{
   var res = utils.add(33,11);
 
-  if (res !== 44){
-    throw new Error(`Expected 44, but got ${res}.`)
+  expect(res).toBe(44).toBeA('number');
+  //if (res !== 44){
+    //throw new Error(`Expected 44, but got ${res}.`)
 
-  }
-
-});
-
-it('Should square a number',()=>{
-  var resSqu = utils.square(9);
-
-  if (resSqu !== 81){
-    throw new Error(`Expected 81, but got ${resSqu}.`)
-
-  }
+  //}
 
 });
 
 it('Should square a number',()=>{
   var resSqu = utils.square(9);
-  var sq2 = 9*9;
-  if (resSqu !== sq2){
-    throw new Error(`Expected ${resSqu}, but got ${sq2}.`)
+
+  expect(resSqu).toBe(81).toBeA('number');
+  //if (resSqu !== 81){
+    //throw new Error(`Expected 81, but got ${resSqu}.`)
+
+  //}
+
+});
+
+it('Should expect some values',()=>{
+  expect(12).toNotBe(11);
 
   }
 
-});
+);
