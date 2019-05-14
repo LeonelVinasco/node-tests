@@ -1,5 +1,6 @@
 const utils = require('./utils');
 const expect = require('expect');
+
 it('Should add two numbers',()=>{
   var res = utils.add(33,11);
 
@@ -10,6 +11,25 @@ it('Should add two numbers',()=>{
   //}
 
 });
+
+//if the done function is not added, mocha will pass the
+//test case as checked, before it waits for the callback
+//that takes one minute.
+it('should asyncAdd two numbers',(done)=>{
+  utils.asyncAdd(4,3, (sum)=>{
+    expect(sum).toBe(7).toBeA('number');
+    done();
+  });
+});
+
+it('should async square a number', (done)=>{
+  utils.asyncSquare(5, (res)=>{
+    expect(res).toBe(25).toBeA('number');
+    done();
+  });
+});
+
+
 
 it('Should square a number',()=>{
   var resSqu = utils.square(9);
